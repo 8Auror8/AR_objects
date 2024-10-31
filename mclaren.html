@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>McLaren object</title>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        model-viewer {
+            width: 100vw; /* Ajustar al 100% del ancho de la ventana */
+            height: 100vh; /* Ajustar al 100% de la altura de la ventana */
+        }
+    </style>
+</head>
+
+<body style="margin: 0; overflow: hidden">
+    <model-viewer
+        alt="McLaren"
+        src="./mclaren_mp45__formula_1.glb"
+        camera-controls
+        touch-action="pan-y">
+    </model-viewer>
+</body>
+
+</html>
