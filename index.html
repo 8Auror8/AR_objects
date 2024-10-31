@@ -5,12 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Love and Psyche AR</title>
+
+    <!-- Script para A-Frame y AR.js -->
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://rawgit.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+
+    <!-- Script para model-viewer -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer@latest/dist/model-viewer.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* Ocultar el visor de AR en pantallas pequeñas */
+        @media (max-width: 768px) {
+            #ar-scene {
+                display: none;
+            }
+        }
+    </style>
+
 </head>
 
-<body style="margin: 0; overflow: hidden">
-    <a-scene embedded arjs>
+<body>
+    <a-scene id="ar-scene" embedded arjs>
         <a-assets>
             <a-asset-item id="pattern3D" src="./pattern-LoveandPsyche.patt"></a-asset-item>
             <a-asset-item id="object3D" src="./amor_und_psyche.gltf"></a-asset-item>
@@ -22,6 +45,25 @@
         </a-marker>
 
         <a-entity camera></a-entity>
+
+        <!-- Sección para el visor de modelos 3D -->
+        <model-viewer 
+        alt="Modelo 3D de Love and Psyche" 
+        src="#object3D" 
+        auto-rotate 
+        camera-controls 
+        touch-action="pan-y" 
+        style="display: none;"> <!-- Inicialmente oculto -->
+        </model-viewer>
+
+        <script>
+            // Mostrar el modelo 3D en la pantalla si AR no está disponible
+            if (!navigator.getUserMedia) {
+                document.querySelector('model-viewer').style.display = 'block';
+                document.querySelector('#ar-scene').style.display = 'none';
+            }
+        </script>
+
     </a-scene>
 </body>
 
