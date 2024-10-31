@@ -12,15 +12,15 @@
 <body style="margin: 0; overflow: hidden">
     <a-scene embedded arjs>
         <a-assets>
-            <a-asset-item id="pattern3D" src="./public/pattern-LoveandPsyche.patt"></a-asset-item>
-            <a-asset-item id="object3D" src="./public/amor_und_psyche.glb"></a-asset-item>
+            <a-asset-item id="pattern3D" src="./pattern-LoveandPsyche.patt"></a-asset-item>
+            <a-asset-item id="object3D" src="./amor_und_psyche.glb"></a-asset-item>
         </a-assets>
 
         <!-- Marcador AR -->
         <a-marker type="pattern" url="#pattern3D">
             <a-entity gltf-model="#object3D" scale="0.5 0.5 0.5" position="0 0 0" rotation="0 0 0"></a-entity>
         </a-marker>
-        
+
         <a-entity camera></a-entity>
     </a-scene>
 </body>
