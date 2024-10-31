@@ -2,31 +2,21 @@
 <html lang="es">
 
 <head>
-    <title>Love and Psyche object</title>
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        model-viewer {
-            width: 100vw; /* Ajustar al 100% del ancho de la ventana */
-            height: 100vh; /* Ajustar al 100% de la altura de la ventana */
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love and Psyche AR</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://rawgit.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.min.js"></script>
 </head>
 
 <body style="margin: 0; overflow: hidden">
-    <model-viewer
-        alt="Love and Psyche"
-        src="./amor_und_psyche.glb"
-        camera-controls
-        touch-action="pan-y">
-    </model-viewer>
+    <a-scene embedded arjs>
+        <!-- Marcador AR -->
+        <a-marker type="pattern" url="https://ar-objects-flame.vercel.app/pattern-LoveandPsyche.patt"> <!-- Cambia esta URL a tu archivo .patt -->
+            <a-entity gltf-model="https://ar-objects-flame.vercel.app/amor_und_psyche.glb" scale="0.5 0.5 0.5" position="0 0 0" rotation="0 0 0"></a-entity> <!-- Cambia esta URL a tu modelo .glb -->
+        </a-marker>
+        <a-entity camera></a-entity>
+    </a-scene>
 </body>
 
 </html>
