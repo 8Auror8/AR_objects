@@ -36,7 +36,7 @@
     <a-scene id="ar-scene" embedded arjs>
         <a-assets>
             <a-asset-item id="pattern3D" src="./pattern-LoveandPsyche.patt"></a-asset-item>
-            <a-asset-item id="object3D" src="./amor_und_psyche.gltf"></a-asset-item>
+            <a-asset-item id="object3D" src="./amor_und_psyche.glb"></a-asset-item>
         </a-assets>
 
         <!-- Marcador AR -->
@@ -57,10 +57,13 @@
         </model-viewer>
 
         <script>
-            // Mostrar el modelo 3D en la pantalla si AR no está disponible
-            if (!navigator.getUserMedia) {
-                document.querySelector('model-viewer').style.display = 'block';
-                document.querySelector('#ar-scene').style.display = 'none';
+            // Cambia la URL del modelo dinámicamente
+            const modelViewer = document.querySelector('model-viewer');
+            const urlParams = new URLSearchParams(window.location.search);
+            const modelUrl = urlParams.get('model'); 
+            
+            if (modelUrl) {
+                modelViewer.src = modelUrl; // Cambia la fuente del modelo 3D si se proporciona en la URL
             }
         </script>
 
