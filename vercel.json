@@ -1,0 +1,22 @@
+{
+    "headers": [
+        {
+            "source": "/(.*)\\.patt",
+            "headers": [
+                {
+                    "key": "Content-Type",
+                    "value": "text/plain"
+                }
+            ]
+        },
+        {
+            "source": "/(.*)\\.glb",
+            "headers": [
+                {
+                    "key": "Content-Type",
+                    "value": "model/gltf-binary"
+                }
+            ]
+        }
+    ]
+}
