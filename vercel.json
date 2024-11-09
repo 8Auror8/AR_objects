@@ -1,20 +1,11 @@
 {
     "headers": [
         {
-            "source": "/(.*)\\.patt",
+            "source": "/(.*).glb",
             "headers": [
                 {
-                    "key": "Content-Type",
-                    "value": "text/plain"
-                }
-            ]
-        },
-        {
-            "source": "/(.*)\\.glb",
-            "headers": [
-                {
-                    "key": "Content-Type",
-                    "value": "model/gltf-binary"
+                    "key": "Access-Control-Allow-Origin",
+                    "value": "*"
                 }
             ]
         }
