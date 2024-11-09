@@ -4,70 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Love and Psyche AR</title>
-
-    <!-- Script para A-Frame y AR.js -->
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://rawgit.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.min.js"></script>
-
-    <!-- Script para model-viewer -->
-    <script type="module" src="https://unpkg.com/@google/model-viewer@latest/dist/model-viewer.min.js"></script>
-
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        /* Ocultar el visor de AR en pantallas pequeñas */
-        @media (max-width: 768px) {
-            #ar-scene {
-                display: none;
-            }
-        }
-    </style>
-
+    <title>AR 3D Objects list</title>
 </head>
 
 <body>
-    <a-scene id="ar-scene" embedded arjs>
-        <a-assets>
-            <a-asset-item id="pattern3D" src="./pattern-LoveandPsyche.patt"></a-asset-item>
-            <a-asset-item id="object3D" src="./amor_und_psyche.glb"></a-asset-item>
-        </a-assets>
-
-        <!-- Marcador AR -->
-        <a-marker type="pattern" url="#pattern3D">
-            <a-entity gltf-model="#object3D" scale="0.5 0.5 0.5" position="0 0 0" rotation="0 0 0"></a-entity>
-        </a-marker>
-
-        <a-entity camera></a-entity>
-
-        <!-- Sección para el visor de modelos 3D -->
-        <model-viewer 
-        alt="Modelo 3D de Love and Psyche" 
-        src="#object3D" 
-        auto-rotate 
-        camera-controls 
-        touch-action="pan-y" 
-        style="display: none;"> <!-- Inicialmente oculto -->
-        </model-viewer>
-
-        <script>
-            // Cambia la URL del modelo dinámicamente
-            const modelViewer = document.querySelector('model-viewer');
-            const urlParams = new URLSearchParams(window.location.search);
-            const modelUrl = urlParams.get('model'); 
-            
-            if (modelUrl) {
-                modelViewer.src = modelUrl; // Cambia la fuente del modelo 3D si se proporciona en la URL
-            }
-        </script>
-
-    </a-scene>
+    <h2>Augmented Reality 3D .glb objects</h2>
+    <ul>
+        <li>https://ar-objects-puce.vercel.app/amor_und_psyche.glb</li>
+        <li>https://ar-objects-puce.vercel.app/angel.glb</li>
+        <li>https://ar-objects-puce.vercel.app/bmw.glb</li>
+        <li>https://ar-objects-puce.vercel.app/dinosaur_alpha.glb</li>
+        <li>https://ar-objects-puce.vercel.app/dinosaur_indoraptor.glb</li>
+        <li>https://ar-objects-puce.vercel.app/dinosaur_vulcan.glb</li>
+        <li>https://ar-objects-puce.vercel.app/mclaren.glb</li>
+        <li>https://ar-objects-puce.vercel.app/provence_house.glb</li>
+        <li>https://ar-objects-puce.vercel.app/pumpkins.glb</li>
+        <li>https://ar-objects-puce.vercel.app/summerside_city.glb</li>
+        <li>https://ar-objects-puce.vercel.app/venus.glb</li>
+        <li>https://ar-objects-puce.vercel.app/wild_west.glb</li>
+    </ul>
+    <h2>Augmented Reality .jpg/.png images</h2>
+    <ul>
+        <li>https://ar-objects-puce.vercel.app/01_mona_lisa.glb</li>
+        <li>https://ar-objects-puce.vercel.app/02_van_gogh.glb</li>
+    </ul>
 </body>
 
 </html>
